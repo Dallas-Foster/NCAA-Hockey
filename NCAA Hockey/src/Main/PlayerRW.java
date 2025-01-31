@@ -299,12 +299,4 @@ public class PlayerRW extends PlayerHockey {
         return pStats;
     }
 
-    @Override
-    public String getInfoForLineup() {
-    	if (injury != null) {
-            return getInitialName() + " [" + getYrStr() + "] " + ratOvr + "/" + getLetterGrade(ratPot) + " " + injury.toString();
-        }
-        return getInitialName() + " [" + getYrStr() + "] " + ratOvr + "/" + getLetterGrade(ratPot) + 
-               " (" + getLetterGrade(ratShotPow) + ", " + getLetterGrade(ratSpeed) + ", " + getLetterGrade(ratPuckControl) + ")";
-    }
 }

@@ -359,18 +359,4 @@ public class PlayerC extends PlayerHockey {
         return pStats;
     }
 
-    /**
-     * Info for lineup (UI). 
-     */
-    @Override
-    public String getInfoForLineup() {
-        if (injury != null) {
-            return getInitialName() + " [" + getYrStr() + "] " + ratOvr + "/" + 
-                   getLetterGrade(ratPot) + " " + injury.toString();
-        }
-        return getInitialName() + " [" + getYrStr() + "] " + 
-               ratOvr + "/" + getLetterGrade(ratPot) + " (" +
-               getLetterGrade(ratShotPow) + ", " + getLetterGrade(ratSpeed) + ", " + 
-               getLetterGrade(ratPuckControl) + ")";
-    }
 }

@@ -7,7 +7,7 @@ import java.util.Vector;
  * Base hockey player class that others (positions) extend.
  * Has name, overall rating, potential, hockey IQ, durability, etc.
  */
-public class PlayerHockey {
+public class Player {
     
     public TeamHockey team;
     public String name;
@@ -38,7 +38,6 @@ public class PlayerHockey {
     public boolean isRedshirt;
 
     public boolean isInjured;
-    public InjuryHockey injury; // the hockey version of Injury
 
     protected final String[] letterGrades = {
             "F", "F+", "D", "D+", "C", "C+", "B", "B+", "A", "A+"
@@ -98,21 +97,11 @@ public class PlayerHockey {
      * Returns a string with position, name, year, overall/potential, plus injury if present.
      */
     public String getPosNameYrOvrPot_Str() {
-        if (injury != null) {
-            return "[I]" + position + " " + getInitialName() +
-                   " [" + getYrStr() + "] Ovr: " + ratOvr +
-                   ">" + injury.toString();
-        }
         return position + " " + name + " [" + getYrStr() + "]>" +
                "Ovr: " + ratOvr + ", Pot: " + getLetterGrade(ratPot);
     }
 
     public String getPosNameYrOvrPot_OneLine() {
-        if (injury != null) {
-            return position + " " + getInitialName() +
-                   " [" + getYrStr() + "] Ovr: " + ratOvr + " " +
-                   injury.toString();
-        }
         return position + " " + getInitialName() + " [" + getYrStr() + "] " +
                "Ovr: " + ratOvr + ", Pot: " + getLetterGrade(ratPot);
     }
@@ -244,9 +233,6 @@ public class PlayerHockey {
     }
 
     public String getInfoLineupInjury() {
-        if (injury != null) {
-            return getInitialName() + " [" + getYrStr() + "] " + injury.toString();
-        }
         return getInitialName() + " [" + getYrStr() + "] " +
                "Ovr: " + ratOvr + ", Pot: " + getLetterGrade(ratPot);
     }
